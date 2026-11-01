@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#081321" />
+    <meta name="description" content="ETERNA — RPG táctico isométrico original para navegador." />
+    <title>ETERNA · Crónicas de Eldoria</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="app" aria-live="polite">
+      <section id="intro" class="screen active">
+        <div class="aurora"></div>
+        <div class="intro-copy">
+          <p class="eyebrow">Crónicas de Eldoria</p>
+          <h1>ETERNA</h1>
+          <p class="lede">Un RPG táctico isométrico original, hecho para jugar desde cualquier pantalla.</p>
+          <button id="beginButton" class="primary">Entrar a Eldoria <span>→</span></button>
+          <p class="tiny">Prototipo offline · tu aventura se guarda en este dispositivo</p>
+        </div>
+        <div class="hero-island" aria-hidden="true">
+          <i class="crystal c1"></i><i class="crystal c2"></i><i class="crystal c3"></i>
+          <i class="tree t1"></i><i class="tree t2"></i><i class="tree t3"></i>
+        </div>
+      </section>
+
+      <section id="creator" class="screen">
+        <header class="minimal-head"><button class="ghost back" data-back="intro">← Volver</button><span>01 · Forja tu leyenda</span></header>
+        <div class="creator-layout">
+          <div class="avatar-stage"><div id="avatarPreview" class="avatar warrior"><span class="avatar-mark">⚔</span></div></div>
+          <div class="creator-panel">
+            <p class="eyebrow">Tu primer juramento</p><h2>Elige tu senda</h2>
+            <div id="classChoices" class="class-grid"></div>
+            <label class="name-label">Nombre de aventurero<input id="nameInput" maxlength="16" placeholder="Auri" autocomplete="nickname" /></label>
+            <button id="createButton" class="primary wide">Comenzar en Eldoria <span>→</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section id="game" class="screen game-screen">
+        <header class="hud-top">
+          <button id="profileButton" class="profile"><span id="portrait" class="portrait warrior">⚔</span><span><b id="heroName">Auri</b><small>Nv. <i id="levelValue">1</i> · <i id="classValue">Guardián</i></small></span></button>
+          <div class="currency"><span>✦ <b id="shards">80</b></span><span>◈ <b id="gold">40</b></span></div>
+          <button id="menuButton" class="icon-button" aria-label="Abrir menú">☰</button>
+        </header>
+        <div id="world" class="world" role="application" aria-label="Mapa de Eldoria">
+          <div class="sky"></div><div class="mountains"></div><div class="forest forest-a"></div><div class="forest forest-b"></div>
+          <div id="mapTiles" class="map-tiles"></div><div id="decor" class="decor"></div>
+          <div id="npcLayer" class="npc-layer"></div><div id="player" class="player warrior"><span>⚔</span></div><div id="targetRing"></div>
+          <div class="map-title"><b id="regionName">Puerto Lúmina</b><small id="regionCaption">La ciudad donde comienzan los relatos</small></div>
+          <button id="questPrompt" class="quest-prompt hidden"></button>
+        </div>
+        <section class="quest-bar"><div class="quest-icon">✦</div><button id="questButton"><small id="questType">PRÓLOGO</small><b id="questTitle">Habla con la Vigía Sera</b><span id="questDetail">Encuéntrala junto al faro</span></button><button id="mapButton" class="round-action" aria-label="Mapa">⌖</button></section>
+        <nav class="bottom-nav"><button data-panel="world" class="selected"><span>◈</span>Mundo</button><button data-panel="inventory"><span>▣</span>Mochila</button><button data-panel="skills"><span>✧</span>Talentos</button><button data-panel="social"><span>♙</span>Gremio</button></nav>
+        <div id="tapHint" class="tap-hint">Toca una casilla para caminar</div>
+      </section>
+
+      <div id="modalRoot" class="modal-root hidden"></div>
+      <div id="toast" class="toast hidden"></div>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
